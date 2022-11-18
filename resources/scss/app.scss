@@ -1,0 +1,74 @@
+@import '@styles/_normalize.scss';
+@import '@styles/_vars.scss';
+@import '@styles/includes/_includes.scss';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+
+button {
+  color: inherit;
+}
+
+body {
+  font-family: 'Rubik';
+  font-weight: $fw-regular;
+  color: $black;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width:1280px) {
+    max-width: 1000px;
+  }
+
+  @media (max-width:1112px) {
+    max-width: 720px;
+  }
+
+  @media (max-width:800px) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+
+.product__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid $gold;
+  border-radius: $br;
+  padding: 20px;
+
+  img {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  h3 {
+    padding-top: 20px;
+    font-weight: $fw-medium;
+  }
+
+  span {
+    padding-top: 10px;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: $br;
+    border: 1px solid $gold;
+    color: $gold;
+    margin-top: 10px;
+    transition: $tr;
+
+    &:hover {
+      background-color: $gold;
+      color: $black;
+    }
+  }
+
+}

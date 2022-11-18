@@ -1,0 +1,240 @@
+.header {
+  padding: 20px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    h1 {
+      font-size: 24px;
+      font-weight: $fw-medium;
+    }
+  }
+
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width:1112px) {
+      display: none;
+    }
+
+    a,
+    button {
+      transition: $tr;
+
+      &:hover {
+        color: $gold;
+      }
+
+      &.active {
+        color: $gold;
+      }
+    }
+
+    >a {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+
+
+
+      i {
+        margin-left: 5px;
+        color: $gold;
+        font-size: 18px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-right: 80px;
+
+    @media (max-width:1280px) {
+      margin-right: 40px;
+    }
+
+    >li {
+      padding: 10px;
+      border-radius: $br;
+      margin-right: 10px;
+      position: relative;
+      transition: $tr;
+
+      @media (max-width:1280px) {
+        margin-right: 4px;
+        padding: 8px;
+      }
+
+      &.menu {
+        &::after {
+          content: '>';
+          font-size: 18px;
+          position: absolute;
+          color: inherit;
+          transition: $tr;
+          left: 98%;
+          top: 50%;
+          transform: translateY(-50%) rotate(90deg);
+        }
+
+        &:hover {
+          >ul {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      >ul {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        background: $white;
+        // transform: translateY(-150%);
+        box-sizing: border-box;
+        border-top: 2px solid $gold;
+        border-radius: 0 0 $br $br;
+        padding: 10px 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        transition: $tr;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+        >li {
+          margin-top: 12px;
+
+          &:last-child {
+            margin-bottom: 10px;
+          }
+
+        }
+
+
+        &.active {
+          transform: translateY(0%);
+        }
+      }
+    }
+  }
+
+
+
+  &__menu {
+    display: none;
+
+    @media (max-width:1112px) {
+      display: block;
+    }
+
+    i {
+      cursor: pointer;
+      color: $gold;
+      font-size: 24px;
+    }
+
+    >span {
+      display: none;
+    }
+
+    &.active {
+      >span {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        font-weight: $fw-medium;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      >ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+    }
+
+
+    >ul {
+      position: fixed;
+      right: 0;
+      top: 0;
+      padding: 20px;
+      width: 20%;
+      background-color: $white;
+      border-left: 1px solid $black;
+      height: 100%;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(10%);
+      transition: $tr;
+
+      li {
+        position: relative;
+        margin-top: 30px;
+
+        &.menu {
+          &::after {
+            content: '>';
+            font-size: 18px;
+            position: absolute;
+            color: inherit;
+            transition: $tr;
+            left: 100%;
+            top: 0;
+          }
+
+          &.active {
+            &::after {
+              transform: rotate(90deg);
+            }
+          }
+        }
+
+        >ul {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-1rem);
+          transition: $tr;
+
+          &.active {
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+          }
+        }
+      }
+
+    }
+
+  }
+}
