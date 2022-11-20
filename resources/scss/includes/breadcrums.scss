@@ -1,0 +1,26 @@
+.breadcrums {
+  padding-top: 40px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    h1 {
+      font-size: 24px;
+      font-weight: $fw-medium;
+    }
+  }
+
+  &__items {
+    padding-top: 4px;
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 18px;
+      margin-left: 10px;
+      color: $gray;
+    }
+  }
+}

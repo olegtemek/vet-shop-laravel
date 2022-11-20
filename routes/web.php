@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\FilterController as AdminFilterController;
 use App\Http\Controllers\admin\IndexController as AdminIndexController;
 use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\front\CartController;
+use App\Http\Controllers\front\CategoryController;
 use App\Http\Controllers\front\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +33,6 @@ Route::post('/admin/login', [AdminAuthController::class, 'auth'])->name('admin.l
 
 Route::group(['as' => 'front.'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home.index');
+    Route::post('/add-cart', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('category.index');
 });

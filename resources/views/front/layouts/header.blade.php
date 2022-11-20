@@ -16,7 +16,7 @@
                     <ul>
                       @foreach ($category->child as $cp)
                         <li>
-                          <a href="#">{{$cp->title}}</a>
+                          <a href="{{route('front.category.index', $cp->slug)}}">{{$cp->title}}</a>
                         </li>
                       @endforeach
                     </ul>
@@ -24,7 +24,7 @@
               @else
                   @if (empty($category->parent))
                     <li>
-                      <a href="#">{{$category->title}}</a>
+                      <a href="{{route('front.category.index', $category->slug)}}">{{$category->title}}</a>
                     </li>
                   @endif
               @endif
@@ -57,7 +57,7 @@
                     <ul>
                       @foreach ($category->child as $cp)
                         <li>
-                          <a href="#">{{$cp->title}}</a>
+                          <a href="{{route('front.category.index', $cp->slug)}}">{{$cp->title}}</a>
                         </li>
                       @endforeach
                     </ul>
@@ -65,7 +65,7 @@
               @else
                   @if (empty($category->parent))
                     <li>
-                      <a href="#">{{$category->title}}</a>
+                      <a href="{{route('front.category.index', $category->slug)}}">{{$category->title}}</a>
                     </li>
                   @endif
               @endif
